@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fluffy Pancakes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>       
+  <header>
+    <h1>Fluffy Pancakes</h1>
+    <a href="index.html" class="back-button">← Go to Homepage</a>
+  </header>
+
+  <main style="padding: 2rem;">
+    <img src="pancakes.jpg" alt="Fluffy Pancakes" style="width:100%; max-width:500px; border-radius:12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    
+    <section>
+      <h2>Ingredients</h2>
+      <ul>
+        <li>1 1/2 cups all-purpose flour</li>
+        <li>3 1/2 tsp baking powder</li>
+        <li>1 tsp salt</li>
+        <li>1 tbsp white sugar</li>
+        <li>1 1/4 cups milk</li>
+        <li>1 egg</li>
+        <li>3 tbsp melted butter</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Instructions</h2>
+      <ol>
+        <li>In a bowl, sift together flour, baking powder, salt and sugar.</li>
+        <li>Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.</li>
+        <li>Heat a lightly oiled griddle or frying pan over medium-high heat.</li>
+        <li>Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.</li>
+        <li>Brown on both sides and serve hot. 🍯</li>
+      </ol>
+    </section>
+
+    <section>
+        <h2>Nutritional Information (Approximate per serving)</h2>
+        <p>Calories: 350 | Carbs: 45g | Protein: 8g | Fat: 14g | Fiber: 2g</p>
+      </section>
+      
+    <section>
+      <h2>Comments</h2>
+      <textarea id="commentBox" placeholder="Did you try these pancakes? Leave your review!" style="width:100%; height:100px;"></textarea>
+      <br>
+      <button onclick="saveComment()">Submit</button>
+      <div id="savedComment"></div>
+    </section>
+  </main>
+
+  <script>
+    const commentBox = document.getElementById("commentBox");
+    const savedComment = document.getElementById("savedComment");
+
+    function saveComment() {
+      const comment = commentBox.value;
+      localStorage.setItem("pancakeComment", comment);
+      displayComment();
+      commentBox.value = "";
+    }
+
+    function displayComment() {
+      const saved = localStorage.getItem("pancakeComment");
+      if (saved) {
+        savedComment.innerHTML = `<p><strong>You said:</strong> ${saved}</p>`;
+      }
+    }
+
+    displayComment();
+  </script>
+</body>
+</html>
