@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classic Spaghetti</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    window.addEventListener('load', () => {
+      document.getElementById('pageLoader').classList.add('hide');
+    });
+  </script>  
+<body>     
+  <header>
+    <h1>Classic Spaghetti with Tomato Garlic Sauce</h1>
+    <a href="index.html" class="back-button">← Go to Homepage</a>
+  </header>
+
+  <main style="padding: 2rem;">
+    <img src="spaghetti.jpg" alt="Spaghetti" style="width:100%; max-width:600px; border-radius:12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+    <section>
+      <h2>Ingredients (Serves 2-3)</h2>
+      <ul>
+        <li>200g (7 oz) dried spaghetti</li>
+        <li>2 tablespoons olive oil (extra virgin recommended)</li>
+        <li>3 cloves garlic, finely chopped</li>
+        <li>1 can (400g) crushed tomatoes or tomato puree</li>
+        <li>1 tablespoon tomato paste (optional for extra depth)</li>
+        <li>1 teaspoon dried oregano</li>
+        <li>1/2 teaspoon red chili flakes (optional)</li>
+        <li>Salt and freshly ground black pepper, to taste</li>
+        <li>Fresh basil leaves for garnish (optional)</li>
+        <li>Grated parmesan cheese to serve (optional but heavenly)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Instructions</h2>
+      <ol>
+        <li><strong>Boil the spaghetti:</strong> Bring a large pot of salted water to a rolling boil. Add spaghetti and cook according to package instructions (usually 8–10 minutes) until al dente. Drain and set aside, reserving 1/2 cup of pasta water.</li>
+        <li><strong>Make the garlic tomato sauce:</strong> In a wide pan, heat olive oil over medium heat. Add the chopped garlic and sauté for about 1 minute until fragrant but not browned.</li>
+        <li><strong>Add tomato magic:</strong> Pour in the crushed tomatoes and tomato paste (if using). Stir well and let it simmer gently for 10–15 minutes, stirring occasionally. Add oregano, chili flakes, salt, and pepper.</li>
+        <li><strong>Combine pasta & sauce:</strong> Add the drained spaghetti to the sauce and toss until evenly coated. If it seems too thick, add a splash of reserved pasta water to loosen it up.</li>
+        <li><strong>Serve like a pro:</strong> Plate it up while warm. Top with grated parmesan cheese and fresh basil if desired. Serve with garlic bread and a side of good vibes. 😌</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Nutritional Information (Approximate per serving)</h2>
+      <p>Calories: 420 | Carbs: 62g | Protein: 12g | Fat: 14g | Fiber: 5g</p>
+    </section>
+
+    <section>
+      <h2>Comments</h2>
+      <textarea id="commentBox" placeholder="How did your spaghetti turn out? 🍝 Share below!" style="width:100%; height:100px;"></textarea>
+      <br>
+      <button onclick="saveComment()">Submit</button>
+      <div id="savedComment"></div>
+    </section>
+  </main>
+
+  <script>
+    const commentBox = document.getElementById("commentBox");
+    const savedComment = document.getElementById("savedComment");
+
+    function saveComment() {
+      const comment = commentBox.value;
+      localStorage.setItem("spaghettiComment", comment);
+      displayComment();
+      commentBox.value = "";
+    }
+
+    function displayComment() {
+      const saved = localStorage.getItem("spaghettiComment");
+      if (saved) {
+        savedComment.innerHTML = `<p><strong>You said:</strong> ${saved}</p>`;
+      }
+    }
+
+    displayComment();
+  </script>  
+</body>
+</html>
+<script>
+    const toggle = document.getElementById("toggleMode");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+  
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  </script>
