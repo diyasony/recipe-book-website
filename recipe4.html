@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grilled Cheese Sandwich</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>       
+  <header>
+    <h1>Grilled Cheese Sandwich</h1>
+    <a href="index.html" class="back-button">← Go to Homepage</a>
+  </header>
+
+  <main style="padding: 2rem;">
+    <img src="sandwich.jpg" alt="Grilled Cheese Sandwich" style="width:100%; max-width:600px; border-radius:12px;">
+
+    <section>
+      <h2>Ingredients</h2>
+      <ul>
+        <li>2 slices of bread</li>
+        <li>2 slices of cheese (or grated cheese)</li>
+        <li>1 tbsp butter (softened)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Instructions</h2>
+      <ol>
+        <li>Butter one side of each bread slice.</li>
+        <li>Place cheese between the unbuttered sides of bread.</li>
+        <li>Heat a non-stick pan and grill the sandwich on medium heat until golden brown on both sides.</li>
+        <li>Press gently while grilling for a crisp crust and melted inside.</li>
+        <li>Cut and serve hot with ketchup or soup!</li>
+      </ol>
+    </section>
+
+    <section>
+        <h2>Nutritional Information (Approximate per serving)</h2>
+        <p>Calories: 380 | Carbs: 30g | Protein: 11g | Fat: 22g | Fiber: 2g</p>
+      </section>
+      
+    <section>
+        <h2>Comments</h2>
+        <textarea id="commentBox" placeholder="Did you try these sandwiches? Leave your review!" style="width:100%; height:100px;"></textarea>
+        <br>
+        <button onclick="saveComment()">Submit</button>
+        <div id="savedComment"></div>
+      </section>
+    </main>
+  
+    <script>
+      const commentBox = document.getElementById("commentBox");
+      const savedComment = document.getElementById("savedComment");
+  
+      function saveComment() {
+        const comment = commentBox.value;
+        localStorage.setItem("sandwichesComment", comment);
+        displayComment();
+        commentBox.value = "";
+      }
+  
+      function displayComment() {
+        const saved = localStorage.getItem("sandwichesComment");
+        if (saved) {
+          savedComment.innerHTML = `<p><strong>You said:</strong> ${saved}</p>`;
+        }
+      }
+  
+      displayComment();
+    </script>
+  </body>
+  </html>
+  
+  </main>
+</body>
+</html>
