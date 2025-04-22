@@ -1,0 +1,203 @@
+/* styles.css */
+body {
+    font-family: 'Georgia', serif;
+    background-image: url('food-pattern.png');
+    background-repeat: repeat;
+    background-size: 300px; /* adjust size as needed */
+    background-attachment: fixed;
+    background-color: #fff8f0; /* soft vintage vibe base */
+    color: #3e3e3e;
+    font-size: 17px;
+    line-height: 1.8;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    scroll-behavior: smooth;
+  }
+  
+  header {
+    background: #d4a373;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .vintage-header {
+    background-color: #f6e2c5;
+    border: 2px dashed #a67c52;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  #searchBar, #searchInput {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #d3bfa4;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    background-color: #fffdf5;
+  }
+  
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    background-color: rgba(255, 250, 240, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    justify-content: center;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .recipe-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .recipe-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .recipe-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid #d2b48c;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background-color: #fef9f4;
+  }
+  
+  .recipe-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .recipe-card h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #7c4f28;
+    font-size: 1.4rem;
+    padding: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .recipe-card:hover h3 {
+    color: #e67300;
+  }
+  
+  section {
+    background-color: #fff8e1;
+    border: 1px solid #e0c9a6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  section h2 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #e67300;
+  }
+  
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+  
+  .ingredients-list,
+  .instructions-list {
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .ingredients-list li,
+  .instructions-list li,
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  a {
+    color: #a76f3c;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  button {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #d2a679;
+    color: #fffaf5;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #a86d4f;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #b07a57;
+  }
+  
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f4d6a0;
+    color: #4b2e2e;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #f1c78e;
+  }
+  
+  body.dark-mode {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .recipe-card {
+    background: #333;
+    color: white;
+  }
+  
+  body.dark-mode header {
+    background: #444;
+  }
+  
+  #loader {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  .hidden {
+    display: none;
+  }
