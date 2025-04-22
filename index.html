@@ -1,0 +1,63 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Book</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <button id="toggleMode">Toggle Dark Mode</button>
+    <h1>yummyrecipes.com</h1>
+    <input type="text" id="searchInput" placeholder="Search for recipes..." />
+  </header>
+
+  <main>
+    <div class="recipe-grid">
+      <a class="recipe-card" href="recipe1.html">
+        <img src="spaghetti.jpg" alt="Spaghetti" />
+        <h3>Spaghetti</h3>
+      </a>
+
+      <a class="recipe-card" href="recipe2.html">
+        <img src="pancakes.jpg" alt="Pancakes" />
+        <h3>Pancakes</h3>
+      </a>
+
+      <a class="recipe-card" href="recipe3.html">
+        <img src="vegfriedrice.jpg" alt="Vegetable Fried Rice" />
+        <h3>Vegetable Fried Rice</h3>
+      </a>
+
+      <a class="recipe-card" href="recipe4.html">
+        <img src="sandwich.jpg" alt="Grilled Cheese Sandwich" />
+        <h3>Grilled Cheese Sandwich</h3>
+      </a>
+
+      <!-- More recipe cards can go here -->
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    const toggle = document.getElementById("toggleMode");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  </script>
+</body>
+</html>
